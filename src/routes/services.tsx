@@ -1,0 +1,199 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Footer, Header, PageChrome } from "@/components/site/chrome";
+import { Reveal } from "@/components/site/reveal";
+
+export const Route = createFileRoute("/services")({
+  head: () => ({
+    meta: [
+      { title: "Services & Pricing — QB Pro" },
+      {
+        name: "description",
+        content:
+          "QB Pro services: web, mobile, backend, frontend, database, iOS, Android, cloud, and AI engineering. Transparent packages from $2,000 to $9,000.",
+      },
+      { property: "og:title", content: "Services & Pricing — QB Pro" },
+      {
+        property: "og:description",
+        content: "Web, mobile, backend, database, and AI engineering. Packages from $2,000 – $3,000.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: ServicesPage,
+});
+
+const DISCIPLINES = [
+  {
+    t: "Frontend Engineering",
+    d: "React, Next.js, TypeScript, Tailwind, design systems, accessibility, performance budgets.",
+  },
+  {
+    t: "Backend Engineering",
+    d: "Node, Python, REST and GraphQL APIs, queues, background jobs, integrations, webhooks.",
+  },
+  {
+    t: "Database & Data",
+    d: "PostgreSQL, MySQL, MongoDB, Redis, schema design, migrations, analytics pipelines, reporting.",
+  },
+  {
+    t: "Mobile — iOS & Android",
+    d: "Native Swift and Kotlin, React Native and Flutter, offline-first sync, push, store releases.",
+  },
+  {
+    t: "Web Applications & SaaS",
+    d: "Multi-tenant products, auth and roles, billing, admin consoles, dashboards, customer portals.",
+  },
+  {
+    t: "Cloud & DevOps",
+    d: "AWS, Google Cloud, Vercel, Docker, CI/CD, observability, cost control, zero-downtime deploys.",
+  },
+  {
+    t: "AI & Automation",
+    d: "Assistants, document extraction, RAG over internal knowledge, workflow automation, evals.",
+  },
+  {
+    t: "Product & UX Design",
+    d: "Discovery, flows, wireframes, high-fidelity UI, prototypes, and a design system you keep.",
+  },
+  {
+    t: "QA & Support",
+    d: "Automated tests, release checks, monitoring, incident response, and monthly maintenance.",
+  },
+];
+
+const TIERS = [
+  {
+    name: "Launch",
+    price: "$2,000 – $3,000",
+    time: "1–2 weeks",
+    for: "Landing sites, focused automations, and small tools.",
+    items: [
+      "Marketing site or single-purpose app",
+      "Up to 6 screens, responsive",
+      "CMS or simple database",
+      "Analytics, SEO, and deployment",
+      "2 weeks of post-launch fixes",
+    ],
+  },
+  {
+    name: "Product",
+    price: "$5,000 – $7,000",
+    time: "3–5 weeks",
+    for: "MVPs and production web apps with real users.",
+    items: [
+      "Full web app or SaaS MVP",
+      "Auth, roles, and payments",
+      "Database design and admin console",
+      "API and third-party integrations",
+      "Cloud deployment plus CI/CD",
+      "30 days of support",
+    ],
+    featured: true,
+  },
+  {
+    name: "Platform",
+    price: "$7,000 – $9,000",
+    time: "6–10 weeks",
+    for: "Multi-surface platforms with mobile and AI.",
+    items: [
+      "Web plus iOS and Android delivery",
+      "Complex data model and reporting",
+      "AI features: assistants, extraction, automation",
+      "Load-tested infrastructure and monitoring",
+      "Full documentation and handover",
+      "60 days of support",
+    ],
+  },
+];
+
+function ServicesPage() {
+  return (
+    <>
+      <Header />
+      <main className="paper-bands">
+        <PageChrome title="Services" descriptor={["What we build", "and what", "it costs"]} />
+
+        <section className="px-5 py-20 md:px-10">
+          <div className="mx-auto max-w-[104rem]">
+            <p className="crumb">// disciplines</p>
+            <div className="mt-12 grid gap-px bg-hairline md:grid-cols-2 lg:grid-cols-3">
+              {DISCIPLINES.map((s, i) => (
+                <Reveal key={s.t} delay={(i % 3) * 80}>
+                  <div className="group h-full bg-background p-8 transition-colors duration-500 hover:bg-accent/60">
+                    <h2 className="text-2xl tracking-tight transition-transform duration-500 ease-out group-hover:translate-x-1">
+                      {s.t}
+                    </h2>
+                    <p className="mt-4 leading-relaxed text-muted-foreground">{s.d}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-hairline px-5 py-24 md:px-10">
+          <div className="mx-auto max-w-[104rem]">
+            <p className="crumb">// pricing</p>
+            <h2 className="mt-8 text-4xl tracking-tight md:text-5xl">Transparent packages</h2>
+            <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
+              Fixed-scope pricing agreed before we start. Larger platforms are quoted after a
+              scoping call.
+            </p>
+
+            <div className="mt-14 grid gap-px bg-hairline lg:grid-cols-3">
+              {TIERS.map((t, ti) => (
+                <Reveal key={t.name} delay={ti * 110} className="h-full">
+                <div
+                  className={`flex h-full flex-col p-10 transition-transform duration-500 ease-out hover:-translate-y-1 ${
+                    t.featured ? "bg-foreground text-background" : "bg-background"
+                  }`}
+                >
+                  <p
+                    className={`font-mono text-[11px] uppercase tracking-[0.18em] ${
+                      t.featured ? "text-background/70" : "text-muted-foreground"
+                    }`}
+                  >
+                    {t.name}
+                  </p>
+                  <p className="mt-8 text-5xl tracking-tight">{t.price}</p>
+                  <p
+                    className={`mt-3 font-mono text-[11px] uppercase tracking-[0.18em] ${
+                      t.featured ? "text-background/70" : "text-muted-foreground"
+                    }`}
+                  >
+                    {t.time}
+                  </p>
+                  <p className={`mt-6 ${t.featured ? "text-background/80" : "text-muted-foreground"}`}>
+                    {t.for}
+                  </p>
+                  <ul
+                    className={`mt-8 flex-1 space-y-3 ${
+                      t.featured ? "text-background/90" : "text-muted-foreground"
+                    }`}
+                  >
+                    {t.items.map((i) => (
+                      <li key={i}>· {i}</li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/contact"
+                    className={`mt-10 inline-block rounded-md border px-6 py-4 text-center font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                      t.featured
+                        ? "border-background hover:bg-background hover:text-foreground"
+                        : "border-foreground hover:bg-foreground hover:text-background"
+                    }`}
+                  >
+                    Start with {t.name} →
+                  </Link>
+                </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}
