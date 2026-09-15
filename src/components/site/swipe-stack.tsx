@@ -191,7 +191,7 @@ export function SwipeStack({
                 transition: SPRING,
               }}
             >
-              <div className="pointer-events-none flex h-full flex-col overflow-hidden rounded-lg border border-hairline bg-background shadow-[0_18px_50px_-24px_rgba(0,0,0,0.35)]">
+              <div className="pointer-events-none flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-hairline bg-card shadow-[0_18px_50px_-24px_rgba(0,0,0,0.35)]">
                 <div className="flex items-center gap-1.5 border-b border-hairline bg-card px-3 py-2">
                   <span className="h-2 w-2 rounded-full bg-destructive/70" />
                   <span className="h-2 w-2 rounded-full bg-muted-foreground/50" />

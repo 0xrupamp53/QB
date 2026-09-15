@@ -12,6 +12,8 @@ export const Route = createFileRoute("/terms")({
       },
       { property: "og:title", content: "Terms of Use — QB Pro" },
       { property: "og:description", content: "Site terms for QB PRO SUPPORT SERVICES LLC." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: TermsPage,
@@ -32,8 +34,8 @@ function TermsPage() {
       <Header />
       <main>
         <PageChrome title="Terms" descriptor={["Last updated", "August 27,", "2026"]} />
-        <section className="px-5 py-20 md:px-10">
-          <div className="mx-auto max-w-5xl">
+        <section className="px-3 py-6 md:px-6 md:py-10">
+          <div className="content-shell mx-auto max-w-6xl px-6 py-16 md:px-12">
             <Block title="Scope">
               <p>These are the site terms for QB PRO SUPPORT SERVICES LLC.</p>
             </Block>

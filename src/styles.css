@@ -29,30 +29,34 @@
   --color-hairline: var(--hairline);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-signal: var(--signal);
+  --color-signal-foreground: var(--signal-foreground);
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 :root {
-  --radius: 0.25rem;
-  --background: oklch(0.985 0.003 95);
-  --foreground: oklch(0.205 0.004 95);
-  --card: oklch(0.972 0.004 95);
-  --card-foreground: oklch(0.205 0.004 95);
-  --primary: oklch(0.205 0.004 95);
-  --primary-foreground: oklch(0.985 0.003 95);
-  --secondary: oklch(0.955 0.004 95);
-  --secondary-foreground: oklch(0.205 0.004 95);
-  --muted: oklch(0.955 0.004 95);
-  --muted-foreground: oklch(0.63 0.008 90);
-  --accent: oklch(0.94 0.005 95);
-  --accent-foreground: oklch(0.205 0.004 95);
+  --radius: 1.25rem;
+  --background: oklch(0.935 0.027 83);
+  --foreground: oklch(0.19 0.018 85);
+  --card: oklch(0.985 0.009 84);
+  --card-foreground: oklch(0.19 0.018 85);
+  --primary: oklch(0.19 0.018 85);
+  --primary-foreground: oklch(0.985 0.009 84);
+  --secondary: oklch(0.965 0.027 84);
+  --secondary-foreground: oklch(0.19 0.018 85);
+  --muted: oklch(0.91 0.026 83);
+  --muted-foreground: oklch(0.48 0.018 80);
+  --accent: oklch(0.955 0.055 91);
+  --accent-foreground: oklch(0.19 0.018 85);
   --destructive: oklch(0.55 0.19 27);
-  --border: oklch(0.9 0.005 95);
-  --hairline: oklch(0.88 0.005 95);
-  --input: oklch(0.88 0.005 95);
+  --border: oklch(0.84 0.022 82);
+  --hairline: oklch(0.84 0.022 82);
+  --input: oklch(0.84 0.022 82);
   --ring: oklch(0.4 0.006 95);
+  --signal: oklch(0.76 0.205 145);
+  --signal-foreground: oklch(0.16 0.03 145);
 }
 
 @layer base {
@@ -69,6 +73,12 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--signal);
+    color: var(--signal-foreground);
   }
 }
 
@@ -83,7 +93,7 @@
 @utility crumb {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted-foreground);
 }
@@ -158,6 +168,113 @@
   background-color: var(--background);
 }
 
+@utility content-shell {
+  width: min(100% - 1.5rem, 104rem);
+  margin-inline: auto;
+  background-color: var(--card);
+  border-radius: 1.75rem;
+}
+
+@utility action-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 3.1rem;
+  border-radius: 999px;
+  padding-inline: 1.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1), background-color 300ms ease;
+
+  &:hover { transform: translateY(-2px); }
+}
+
+@utility section-label {
+  display: inline-flex;
+  border-radius: 999px;
+  background-color: color-mix(in oklab, var(--signal) 14%, var(--card));
+  padding: 0.45rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@keyframes soft-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@utility soft-float {
+  animation: soft-float 6s ease-in-out infinite;
+}
+
+@keyframes number-drift {
+  0%, 100% { transform: translateY(0); }
+  45%, 55% { transform: translateY(-0.16em); }
+}
+
+@utility number-drift {
+  animation: number-drift 4.8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+}
+
+@keyframes metric-rise {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@utility metric-rise {
+  animation: metric-rise 7s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  &:nth-child(2) { animation-delay: 0.8s; }
+  &:nth-child(3) { animation-delay: 1.6s; }
+}
+
+@keyframes ambient-breathe {
+  0%, 100% { background-position: 50% 50%; }
+  50% { background-position: 50% 43%; }
+}
+
+@utility hero-ambient {
+  background-image: radial-gradient(circle at 50% 75%, color-mix(in oklab, var(--signal) 6%, transparent), transparent 34%);
+  background-size: 130% 130%;
+  animation: ambient-breathe 10s ease-in-out infinite;
+}
+
+@utility ambient-panel {
+  background-image: radial-gradient(circle at 50% 100%, color-mix(in oklab, var(--signal) 10%, transparent), transparent 48%);
+  background-size: 130% 130%;
+  animation: ambient-breathe 12s ease-in-out infinite reverse;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--signal) 0%, transparent); }
+  50% { box-shadow: 0 14px 38px -18px color-mix(in oklab, var(--signal) 78%, transparent); }
+}
+
+@utility pulse-soft {
+  animation: pulse-soft 4s ease-in-out infinite;
+}
+
+@utility motion-card {
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 700ms cubic-bezier(0.22, 1, 0.36, 1), background-color 500ms ease;
+  &:hover {
+    transform: translateY(-7px) rotate(0.25deg);
+    box-shadow: 0 28px 70px -42px color-mix(in oklab, var(--foreground) 52%, transparent);
+  }
+}
+
+@keyframes nav-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
+}
+
+@utility nav-float {
+  animation: nav-float 8s ease-in-out infinite;
+}
+
 @keyframes qb-char-rise {
   from {
     transform: translateY(110%);
@@ -183,6 +300,7 @@
 
 /* Calm scroll reveal */
 @utility reveal {
+  min-width: 0;
   opacity: 0;
   transform: translateY(22px);
   transition:
@@ -197,9 +315,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .reveal, .soft-float, .marquee-track, .char-rise, .number-drift, .metric-rise, .hero-ambient, .ambient-panel, .pulse-soft, .nav-float {
     opacity: 1 !important;
     transform: none !important;
+    animation: none !important;
   }
 }
 
@@ -241,7 +360,8 @@
 
 @utility nav-pill {
   border: 1px solid var(--hairline);
-  border-radius: 0.75rem;
-  background-color: color-mix(in oklab, var(--background) 88%, transparent);
-  backdrop-filter: blur(14px);
+  border-radius: 999px;
+  background-color: color-mix(in oklab, var(--card) 92%, transparent);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 35px color-mix(in oklab, var(--foreground) 7%, transparent);
 }

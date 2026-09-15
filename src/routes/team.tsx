@@ -45,10 +45,10 @@ function TeamPage() {
       <main className="paper-bands">
         <PageChrome title="Team" descriptor={["The people", "building", "QB Pro"]} />
 
-        <section className="px-5 py-20 md:px-10">
-          <div className="mx-auto max-w-[104rem]">
-            <p className="crumb">// about</p>
-            <h2 className="mt-8 max-w-4xl text-4xl leading-tight tracking-tight md:text-6xl">
+        <section className="px-3 py-6 md:px-6 md:py-10">
+          <div className="content-shell min-w-0 px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
+            <span className="section-label">About us</span>
+            <h2 className="mt-8 max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
               Building production software, end to end
             </h2>
             <div className="mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-muted-foreground">
@@ -65,14 +65,14 @@ function TeamPage() {
           </div>
         </section>
 
-        <section className="border-t border-hairline px-5 py-20 md:px-10">
-          <div className="mx-auto max-w-[104rem]">
+        <section className="px-3 py-6 md:px-6 md:py-10">
+          <div className="content-shell min-w-0 px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
             <p className="crumb">// principles</p>
             <h2 className="mt-8 text-4xl tracking-tight md:text-5xl">Our Values</h2>
-            <div className="mt-14 grid gap-px bg-hairline md:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               {VALUES.map((v) => (
-                <div key={v.t} className="bg-background p-8">
-                  <h3 className="text-2xl tracking-tight">{v.t}</h3>
+                <div key={v.t} className="rounded-[1.5rem] bg-secondary p-8">
+                  <h3 className="text-2xl font-semibold tracking-tight">{v.t}</h3>
                   <p className="mt-4 leading-relaxed text-muted-foreground">{v.d}</p>
                 </div>
               ))}
@@ -80,12 +80,12 @@ function TeamPage() {
           </div>
         </section>
 
-        <section className="border-t border-hairline px-5 py-20 md:px-10">
-          <div className="mx-auto max-w-[104rem]">
+        <section className="px-3 py-6 md:px-6 md:py-10">
+          <div className="content-shell min-w-0 px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
             <p className="crumb">// team</p>
             <h2 className="mt-8 text-4xl tracking-tight md:text-5xl">The Team</h2>
-            <div className="mt-14 grid gap-px bg-hairline md:grid-cols-2">
-              <div className="bg-background p-10">
+            <div className="mt-14 grid min-w-0 gap-px bg-hairline md:grid-cols-2">
+              <div className="min-w-0 bg-background p-5 sm:p-10">
                 <h3 className="text-3xl tracking-tight">Founder's Office</h3>
                 <p className="crumb mt-3">Founder & Managing Member</p>
                 <ul className="mt-6 space-y-2 leading-relaxed text-muted-foreground">
@@ -94,13 +94,13 @@ function TeamPage() {
                   <li>· Leads scoping, architecture, and delivery on every engagement</li>
                 </ul>
                 <a
-                  className="crumb mt-8 inline-block hover:text-foreground"
+                  className="crumb mt-8 inline-block max-w-full break-all hover:text-foreground"
                   href="mailto:info@qbprosupportservices.com"
                 >
                   ›info@qbprosupportservices.com
                 </a>
               </div>
-              <div className="bg-background p-10">
+              <div className="min-w-0 bg-background p-5 sm:p-10">
                 <h3 className="text-3xl tracking-tight">Engineering Pod</h3>
                 <p className="crumb mt-3">Frontend · Backend · Mobile · Data</p>
                 <ul className="mt-6 space-y-2 leading-relaxed text-muted-foreground">

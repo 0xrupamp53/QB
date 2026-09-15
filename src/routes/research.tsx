@@ -49,21 +49,21 @@ function ResearchPage() {
           descriptor={["Research &", "engineering", "as one discipline"]}
         />
 
-        <section className="grid gap-5 px-5 pb-32 pt-14 md:grid-cols-2 md:px-10">
+        <section className="grid gap-5 px-3 py-6 md:grid-cols-2 md:px-6 md:py-10">
           {LABS.map((l) => (
             <div
               key={l.title}
-              className="paper-dots lift overflow-hidden rounded-xl border border-hairline p-8 hover:border-foreground/30 md:p-12"
+              className="lift overflow-hidden rounded-[1.75rem] bg-card p-8 hover:border-foreground/30 md:p-12"
             >
-              <span className="rounded-md border border-hairline bg-background/70 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              <span className="section-label">
                 {l.kicker}
               </span>
-              <h2 className="mt-12 text-5xl tracking-tight md:text-6xl">{l.title}</h2>
+              <h2 className="mt-12 text-5xl font-bold tracking-tight md:text-6xl">{l.title}</h2>
               <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">
                 {l.body}
               </p>
               <p className="crumb mt-10">{l.crumb}</p>
-              <div className="mt-8 overflow-hidden rounded-lg border border-hairline bg-background">
+              <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-hairline bg-background">
                 <img
                   src={l.image}
                   alt={`${l.title} research at QB Pro`}

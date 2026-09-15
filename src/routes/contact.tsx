@@ -15,6 +15,8 @@ export const Route = createFileRoute("/contact")({
       },
       { property: "og:title", content: "Contact — Book a fit call with QB Pro" },
       { property: "og:description", content: "Get in touch with the QB Pro studio." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ContactPage,
@@ -118,11 +120,11 @@ function ContactPage() {
       <main>
         <PageChrome title="Contact" descriptor={["Get in", "touch"]} />
 
-        <section className="px-5 py-24 md:px-10">
-          <div className="mx-auto max-w-[100rem]">
+        <section className="px-3 py-6 md:px-6 md:py-10">
+          <div className="content-shell min-w-0 px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
             <div className="grid gap-10 md:grid-cols-2">
-              <h2 className="text-[9vw] leading-[1.05] tracking-tight md:text-[3.4rem]">
-                Get in touch
+              <h2 className="text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+                Tell us what you need. We’ll turn it into a clear plan.
               </h2>
               <p className="self-end text-lg text-muted-foreground">Book a fit call</p>
             </div>
@@ -167,7 +169,7 @@ function ContactPage() {
                               setValues((v) => ({ ...v, [current.key]: c }));
                               if (step < STEPS.length - 1) setTimeout(() => setStep(step + 1), 220);
                             }}
-                            className={`border px-5 py-3 text-base transition-colors ${
+                            className={`rounded-full border px-5 py-3 text-base transition-colors ${
                               value === c
                                 ? "border-foreground bg-foreground text-background"
                                 : "border-hairline text-muted-foreground hover:text-foreground"
@@ -233,7 +235,7 @@ function ContactPage() {
                     <button
                       type="submit"
                       disabled={!canAdvance || busy}
-                      className="border border-foreground px-6 py-4 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors hover:bg-foreground hover:text-background disabled:opacity-35 disabled:hover:bg-transparent disabled:hover:text-foreground"
+                      className="action-pill bg-signal text-signal-foreground disabled:opacity-35"
                     >
                       {busy
                         ? "Sending…"
@@ -255,12 +257,16 @@ function ContactPage() {
               )}
             </div>
 
-            <div className="mt-24 grid gap-8 border-t border-hairline pt-10 md:grid-cols-2">
-              <p className="text-lg">
+            <div className="mt-24 grid min-w-0 gap-8 border-t border-hairline pt-10 md:grid-cols-2">
+              <p className="min-w-0 break-all text-base sm:text-lg">
                 <span className="crumb block">Email</span>
                 info@qbprosupportservices.com
               </p>
-              <p className="text-lg">
+              <p className="min-w-0 text-base sm:text-lg">
+                <span className="crumb block">Phone</span>
+                <a href="tel:+19163746747">+1 (916) 374-6747</a>
+              </p>
+              <p className="min-w-0 break-words text-base sm:text-lg">
                 <span className="crumb block">Address</span>
                 4431 Silver Cedar Ln, Sacramento, CA 95834
               </p>

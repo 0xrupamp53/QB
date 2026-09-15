@@ -12,6 +12,8 @@ export const Route = createFileRoute("/refund")({
       },
       { property: "og:title", content: "Refund Policy — QB Pro" },
       { property: "og:description", content: "Refund policy for QB PRO SUPPORT SERVICES LLC." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: RefundPage,
@@ -32,8 +34,8 @@ function RefundPage() {
       <Header />
       <main>
         <PageChrome title="Refunds" descriptor={["Last updated", "August 27,", "2026"]} />
-        <section className="px-5 py-20 md:px-10">
-          <div className="mx-auto max-w-5xl">
+        <section className="px-3 py-6 md:px-6 md:py-10">
+          <div className="content-shell mx-auto max-w-6xl px-6 py-16 md:px-12">
             <Block title="Scope">
               <p>
                 This policy covers paid engagements with QB PRO SUPPORT SERVICES LLC. The signed

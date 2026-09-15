@@ -19,21 +19,21 @@ const ROW = [
 export function Affiliations() {
   const items = [...ROW, ...ROW];
   return (
-    <section className="border-t border-hairline py-16">
-      <p className="text-center text-sm text-muted-foreground">
-        Engineers from and building with
-      </p>
-      <div className="mt-10 overflow-hidden">
+    <section className="px-3 py-3 md:px-6 md:py-6">
+      <div className="content-shell ambient-panel overflow-hidden bg-accent py-8">
+      <p className="text-center font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">Technology we build with</p>
+      <div className="mt-7 overflow-hidden">
         <div className="marquee-track items-center gap-14 px-7">
           {items.map((name, i) => (
             <span
               key={`${name}-${i}`}
-              className="whitespace-nowrap font-mono text-sm uppercase tracking-[0.16em] text-muted-foreground"
+              className="whitespace-nowrap text-lg font-semibold tracking-tight text-foreground/70"
             >
               {name}
             </span>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

@@ -43,15 +43,15 @@ function PortfolioPage() {
       <main className="paper-bands">
         <PageChrome title="Portfolio" descriptor={["Case studies &", "live product", "deep-dives"]} />
 
-        <section className="px-5 pb-32 pt-14 md:px-10">
-          <div className="mx-auto max-w-[104rem]">
+        <section className="px-3 py-6 md:px-6 md:py-10">
+          <div className="content-shell min-w-0 px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
             <div className="flex flex-wrap gap-3">
               {FILTERS.map((f) => (
                 <button
                   key={f}
                   type="button"
                   onClick={() => setFilter(f)}
-                  className={`rounded-md border px-6 py-3 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                    className={`rounded-full border px-6 py-3 font-mono text-[11px] uppercase tracking-[0.12em] transition-colors ${
                     filter === f
                       ? "border-foreground bg-foreground text-background"
                       : "border-hairline text-muted-foreground hover:text-foreground"
@@ -67,7 +67,7 @@ function PortfolioPage() {
                 <h2 className="border-b border-hairline pb-5 text-3xl tracking-tight md:text-4xl">
                   {chapter.id} / {chapter.label}
                 </h2>
-                <div className="grid gap-px bg-hairline md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid min-w-0 gap-5 md:grid-cols-2 lg:grid-cols-3">
                   {chapter.items.map((item, i) => (
                     <Reveal key={item.slug} delay={(i % 3) * 90}>
                       <Card item={item} />
@@ -93,8 +93,8 @@ function PortfolioPage() {
 
 function Card({ item }: { item: CaseStudy }) {
   return (
-    <article className="group bg-background">
-      <div className="aspect-[16/10] overflow-hidden border-b border-hairline bg-card">
+    <article className="group h-full min-w-0 overflow-hidden rounded-[1.5rem] bg-secondary">
+      <div className="aspect-[16/10] overflow-hidden bg-card">
         <img
           src={item.image}
           alt={`${item.title} — product built by QB Pro`}
@@ -102,17 +102,17 @@ function Card({ item }: { item: CaseStudy }) {
           className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
         />
       </div>
-      <div className="p-8">
-        <div className="flex items-start justify-between gap-4">
-          <p className="crumb">
+      <div className="min-w-0 p-5 sm:p-8">
+        <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+          <p className="crumb min-w-0 break-words">
             {"{ "}
             {item.tags.join(" / ")}
             {" }"}
           </p>
           <p className="crumb whitespace-nowrap">· {item.status}</p>
         </div>
-        <h3 className="mt-7 text-3xl tracking-tight">{item.title}</h3>
-        <p className="crumb mt-4">Client: {item.client}</p>
+        <h3 className="mt-7 break-words text-3xl tracking-tight">{item.title}</h3>
+        <p className="crumb mt-4 break-words">Client: {item.client}</p>
         <p className="mt-6 leading-relaxed text-muted-foreground">{item.blurb}</p>
       </div>
     </article>

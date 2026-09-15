@@ -10,14 +10,14 @@ export function FaqAccordion({ items, startIndex = 1 }: { items: FaqItem[]; star
       {items.map((item, i) => {
         const isOpen = open === i;
         return (
-          <div key={item.q} className="border-b border-hairline">
+          <div key={item.q} className="motion-card border-b border-hairline">
             <button
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
               aria-expanded={isOpen}
               className="flex w-full items-start gap-6 py-7 text-left"
             >
-              <span className="crumb mt-2 w-8 shrink-0">
+              <span className="number-drift crumb mt-2 w-8 shrink-0" style={{ animationDelay: `${i * 0.25}s` }}>
                 {String(i + startIndex).padStart(2, "0")}
               </span>
               <span className="flex-1 text-xl leading-snug md:text-2xl">{item.q}</span>

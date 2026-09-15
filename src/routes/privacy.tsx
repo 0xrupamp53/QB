@@ -12,6 +12,8 @@ export const Route = createFileRoute("/privacy")({
       },
       { property: "og:title", content: "Privacy Policy — QB Pro" },
       { property: "og:description", content: "What we collect, why, and how to reach us." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: PrivacyPage,
@@ -32,8 +34,8 @@ function PrivacyPage() {
       <Header />
       <main>
         <PageChrome title="Privacy" descriptor={["Last updated", "August 27,", "2026"]} />
-        <section className="px-5 py-20 md:px-10">
-          <div className="mx-auto max-w-5xl">
+        <section className="px-3 py-6 md:px-6 md:py-10">
+          <div className="content-shell mx-auto max-w-6xl px-6 py-16 md:px-12">
             <Block title="Operator">
               <p>
                 QB PRO SUPPORT SERVICES LLC, 4431 Silver Cedar Ln, Sacramento, CA 95834.

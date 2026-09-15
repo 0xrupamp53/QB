@@ -114,16 +114,17 @@ function ServicesPage() {
       <main className="paper-bands">
         <PageChrome title="Services" descriptor={["What we build", "and what", "it costs"]} />
 
-        <section className="px-5 py-20 md:px-10">
-          <div className="mx-auto max-w-[104rem]">
-            <p className="crumb">// disciplines</p>
+        <section className="px-3 py-6 md:px-6 md:py-10">
+          <div className="content-shell px-6 py-20 md:px-12 md:py-28">
+            <span className="section-label">Capabilities</span>
+            <h2 className="mt-6 max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">One team across the complete product stack.</h2>
             <div className="mt-12 grid gap-px bg-hairline md:grid-cols-2 lg:grid-cols-3">
               {DISCIPLINES.map((s, i) => (
                 <Reveal key={s.t} delay={(i % 3) * 80}>
-                  <div className="group h-full bg-background p-8 transition-colors duration-500 hover:bg-accent/60">
-                    <h2 className="text-2xl tracking-tight transition-transform duration-500 ease-out group-hover:translate-x-1">
+                  <div className="motion-card group h-full bg-card p-8 transition-colors duration-500 hover:bg-accent">
+                    <h3 className="text-2xl font-semibold tracking-tight transition-transform duration-500 ease-out group-hover:translate-x-1">
                       {s.t}
-                    </h2>
+                    </h3>
                     <p className="mt-4 leading-relaxed text-muted-foreground">{s.d}</p>
                   </div>
                 </Reveal>
@@ -132,26 +133,26 @@ function ServicesPage() {
           </div>
         </section>
 
-        <section className="border-t border-hairline px-5 py-24 md:px-10">
-          <div className="mx-auto max-w-[104rem]">
-            <p className="crumb">// pricing</p>
-            <h2 className="mt-8 text-4xl tracking-tight md:text-5xl">Transparent packages</h2>
+        <section className="px-3 py-6 md:px-6 md:py-10">
+          <div className="content-shell bg-foreground px-6 py-20 text-primary-foreground md:px-12 md:py-28">
+            <span className="section-label bg-primary-foreground/10">Pricing</span>
+            <h2 className="mt-8 text-4xl font-bold tracking-tight md:text-6xl">Transparent packages</h2>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               Fixed-scope pricing agreed before we start. Larger platforms are quoted after a
               scoping call.
             </p>
 
-            <div className="mt-14 grid gap-px bg-hairline lg:grid-cols-3">
+            <div className="mt-14 grid gap-4 lg:grid-cols-3">
               {TIERS.map((t, ti) => (
                 <Reveal key={t.name} delay={ti * 110} className="h-full">
                 <div
-                  className={`flex h-full flex-col p-10 transition-transform duration-500 ease-out hover:-translate-y-1 ${
-                    t.featured ? "bg-foreground text-background" : "bg-background"
+                  className={`flex h-full flex-col rounded-[1.5rem] border p-10 transition-transform duration-500 ease-out hover:-translate-y-1 ${
+                    t.featured ? "border-signal bg-signal text-signal-foreground" : "border-primary-foreground/20"
                   }`}
                 >
                   <p
                     className={`font-mono text-[11px] uppercase tracking-[0.18em] ${
-                      t.featured ? "text-background/70" : "text-muted-foreground"
+                       t.featured ? "text-signal-foreground/70" : "text-primary-foreground/60"
                     }`}
                   >
                     {t.name}
@@ -159,17 +160,17 @@ function ServicesPage() {
                   <p className="mt-8 text-5xl tracking-tight">{t.price}</p>
                   <p
                     className={`mt-3 font-mono text-[11px] uppercase tracking-[0.18em] ${
-                      t.featured ? "text-background/70" : "text-muted-foreground"
+                       t.featured ? "text-signal-foreground/70" : "text-primary-foreground/60"
                     }`}
                   >
                     {t.time}
                   </p>
-                  <p className={`mt-6 ${t.featured ? "text-background/80" : "text-muted-foreground"}`}>
+                  <p className={`mt-6 ${t.featured ? "text-signal-foreground/80" : "text-primary-foreground/70"}`}>
                     {t.for}
                   </p>
                   <ul
                     className={`mt-8 flex-1 space-y-3 ${
-                      t.featured ? "text-background/90" : "text-muted-foreground"
+                      t.featured ? "text-signal-foreground/90" : "text-primary-foreground/70"
                     }`}
                   >
                     {t.items.map((i) => (
@@ -180,8 +181,8 @@ function ServicesPage() {
                     to="/contact"
                     className={`mt-10 inline-block rounded-md border px-6 py-4 text-center font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
                       t.featured
-                        ? "border-background hover:bg-background hover:text-foreground"
-                        : "border-foreground hover:bg-foreground hover:text-background"
+                        ? "border-signal-foreground hover:bg-signal-foreground hover:text-signal"
+                        : "border-primary-foreground hover:bg-primary-foreground hover:text-foreground"
                     }`}
                   >
                     Start with {t.name} →
