@@ -32,12 +32,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 px-3 pt-3 md:px-6 md:pt-5">
       <div className="nav-pill nav-float mx-auto grid max-w-[96rem] grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 py-3 sm:flex sm:justify-between sm:gap-4 sm:px-4 md:px-5">
-        <Link to="/" className="flex min-w-0 items-center gap-2 whitespace-nowrap font-semibold tracking-tight">
+        <Link to="/" className="flex min-w-0 items-center gap-2 whitespace-nowrap text-sm font-semibold tracking-tight sm:text-base">
           <span className="grid h-7 w-7 shrink-0 grid-cols-2 gap-0.5 rounded-full border border-foreground p-1">
             <i className="rounded-full bg-foreground" /><i className="rounded-full border border-foreground" />
             <i className="rounded-full border border-foreground" /><i className="rounded-full bg-foreground" />
           </span>
-          QB PRO
+          QB PRO SUPPORT SERVICES
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
